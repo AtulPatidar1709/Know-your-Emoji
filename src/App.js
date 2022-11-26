@@ -12,7 +12,7 @@ var emojiDictionary = {
   "😅": "Smiling Face With Open Mouth & Cold Sweat",
   "😀": "Grinning Face",
   "❤": "Red Heart",
-  "✈️": "You Have a Nice Journey"
+  "✈️": "You Have a Nice Journey",
 };
 var enojiArr = Object.keys(emojiDictionary);
 
@@ -38,7 +38,7 @@ export default function App() {
   return (
     <div className="App">
       <h1>Hello Welcome</h1>
-      <input onChange={emojiInputHandler} />
+      {/* <input onChange={emojiInputHandler} /> */}
       <h2>Welcome You have {meaning} Today</h2>
 
       <h3>Emojis We Know</h3>
