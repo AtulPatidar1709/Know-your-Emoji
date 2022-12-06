@@ -2,3 +2,11 @@
   font-family: sans-serif;
   text-align: center;
 }
+.emojiDisplay {
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 0.5rem;
+}
+h1 {
+  font-family: "Times New Roman", Times, serif;
+}
