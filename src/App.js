@@ -1,6 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./styles.css";
-
 var emojiDictionary = {
   "🥰": "Smiling face with smiling eyes and three hearts",
   "😊": "Smiling Face With Smiling Eyes",
@@ -14,41 +13,41 @@ var emojiDictionary = {
   "❤": "Red Heart",
   "✈️": "You Have a Nice Journey"
 };
-var enojiArr = Object.keys(emojiDictionary);
+var emojiArray = Object.keys(emojiDictionary);
 
 export default function App() {
-  const [meaning, setMeaning] = useState("");
-
-  function emojiInputHandler(event) {
-    var userInput = event.target.value;
-
-    var meaning = emojiDictionary[userInput];
-
-    if (meaning === undefined) {
-      meaning = "We Don't Have This in our Data Base";
+  // enter and see part
+  var [emojiVar, emojiFun] = useState("");
+  function onChangeHandeler(event) {
+    var emojiEntered = event.target.value;
+    emojiVar = emojiDictionary[emojiEntered];
+    if (emojiVar === undefined) {
+      emojiVar = "We don't have this in our database";
     }
-    setMeaning(meaning);
+    emojiFun(emojiVar);
   }
-
-  function emojiClickHandler(emoji) {
-    var meaning = emojiDictionary[emoji];
-    setMeaning(meaning);
+  // click and see part
+  function onClickHandeler(emoji) {
+    var emojiVar = emojiDictionary[emoji];
+    emojiFun(emojiVar);
   }
 
   return (
     <div className="App">
-      <h1>Hello Welcome</h1>
-      <input onChange={emojiInputHandler} />
-      <h2>Welcome You have {meaning} Today</h2>
-
-      <h3>Emojis We Know</h3>
-      {enojiArr.map(function (emoji) {
+      <h1>Emoji Dictionary</h1>
+      {/* enter and see part */}
+      <input onChange={onChangeHandeler}></input>
+      <h3> -:) {emojiVar}</h3>
+      {/* click and ssee part */}
+      <h3>Symbols in our Databse </h3>
+      {emojiArray.map((emoji) => {
         return (
           <span
-            onClick={() => emojiClickHandler(emoji)}
-            style={{ fontSize: "2rem", padding: "0.5rem", cursor: "pointer" }}
+            className="emojiDisplay"
+            onClick={() => onClickHandeler(emoji)}
             key={emoji}
           >
+            {" "}
             {emoji}
           </span>
         );
